@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     :tag => s.version.to_s
   }
   s.source_files = 'Sources/**/*'
-  s.ios.deployment_target  = '10.0'
+  s.ios.deployment_target  = '9.0'
   s.frameworks = 'WebKit'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.swift_version = '4.2'
