@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
+public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
   
   private(set) lazy var webView:WKWebView = WKWebView(frame: CGRect.zero)
   
@@ -19,9 +19,9 @@ class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
   
   private var lastLocation:CGPoint = .zero
   
-  var request:URLRequest!
+  public var request:URLRequest!
  
-  override func loadView() {
+  override public func loadView() {
     super.loadView()
     view = UIView()
     view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -55,7 +55,7 @@ class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
     mainStackView.bindFrameToSuperviewBounds()
   }
   
-  override func viewDidLoad() {
+  override public func viewDidLoad() {
     super.viewDidLoad()
     webView.load(request)
   }
@@ -64,7 +64,7 @@ class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
     dismiss(completion: nil)
   }
   
-  func dismiss(completion: (() -> Void)? = nil) {
+  public func dismiss(completion: (() -> Void)? = nil) {
     dismiss(animated: true, completion: completion)
   }
   
@@ -117,17 +117,19 @@ class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
   }
 }
 
-extension UIViewController {
+public extension UIViewController {
   
   // Shortcuts
-  func present(urlRequest: URLRequest, completion: (() -> Void)? = nil) {
+  @objc
+  public func present(urlRequest: URLRequest, completion: (() -> Void)? = nil) {
     let web = MHWebViewController()
     web.request = urlRequest
     web.modalPresentationStyle = .overCurrentContext
     present(web, animated: true, completion: completion)
   }
   
-  func present(url: URL, completion: (() -> Void)? = nil) {
+  @objc
+  public func present(url: URL, completion: (() -> Void)? = nil) {
     let urlRequest = URLRequest(url: url)
     present(urlRequest: urlRequest)
   }
