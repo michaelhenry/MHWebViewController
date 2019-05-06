@@ -1,4 +1,3 @@
 # MHWebViewController
 
- A web viewController inspired by instagram.
-
+An Instagram inspired Web View Controller.
