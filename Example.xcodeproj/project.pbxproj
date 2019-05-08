@@ -14,8 +14,6 @@
 		A6C57901227DEAB400D720DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C57900227DEAB400D720DD /* Assets.xcassets */; };
 		A6C57904227DEAB400D720DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C57902227DEAB400D720DD /* LaunchScreen.storyboard */; };
 		A6C5790F227DEAB400D720DD /* MHWebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C5790E227DEAB400D720DD /* MHWebViewControllerTests.swift */; };
-		F1EEFDC2C2A9FC7EE858D38C /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0009A51296D447FCA409E2C0 /* Pods_ExampleTests.framework */; };
-		FA232A4961194FFAD659D12E /* Pods_MHWebViewControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4960932053AFA93EB6D1E3 /* Pods_MHWebViewControllerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +64,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA232A4961194FFAD659D12E /* Pods_MHWebViewControllerTests.framework in Frameworks */,
-				F1EEFDC2C2A9FC7EE858D38C /* Pods_ExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +518,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V542NQW43X;
-				INFOPLIST_FILE = MHWebViewControllerTests/Info.plist;
+				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -544,7 +540,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V542NQW43X;
-				INFOPLIST_FILE = MHWebViewControllerTests/Info.plist;
+				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
