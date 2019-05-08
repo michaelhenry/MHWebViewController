@@ -1,0 +1,20 @@
+osx_image: xcode9.4
+language: objective-c
+jobs:
+  include:
+    - stage: Testing
+      before_install:
+        - gem install cocoapods
+      script:
+        - cd Example
+        - pod install
+        - xcodebuild test -workspace Example.xcworkspace -scheme Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X' -quiet
+    - stage: deploying to cocoapods
+      before_install:
+        - echo $TRAVIS_TAG
+        - export CURRENT_VERSION=$TRAVIS_TAG
+        - gem install cocoapods
+      script:
+        - pod lib lint --allow-warnings
+        - pod trunk push --allow-warnings
+      if: tag IS present
