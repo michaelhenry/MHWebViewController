@@ -15,7 +15,7 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
   
   private lazy var toolbar:UIToolbar = UIToolbar(frame: CGRect.zero)
   private lazy var container = UIView(frame: CGRect.zero)
-  private let topMargin:CGFloat = 0.0
+  private let topMargin:CGFloat = 10.0
   
   private var lastLocation:CGPoint = .zero
   
@@ -40,13 +40,19 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
       equalTo: view.safeTrailingtAnchor, constant: 0).isActive = true
     container.layer.cornerRadius = 10.0
     container.clipsToBounds = true
-    
+   
     addPanGestureRecognizer()
+    guard let closeImage = UIImage(
+      named: "close_button",
+      in: Bundle(for: MHWebViewController.self),
+      compatibleWith: nil) else { return }
     
     let closeButton = UIBarButtonItem(
-      barButtonSystemItem: .done,
+      image: closeImage,
+      style: .plain,
       target: self,
       action: #selector(dismissMe(_:)))
+    closeButton.tintColor = UIColor.darkGray
     toolbar.items = [closeButton]
   
     let mainStackView = UIStackView(arrangedSubviews: [toolbar, webView])

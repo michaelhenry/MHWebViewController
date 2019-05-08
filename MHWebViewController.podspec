@@ -9,9 +9,10 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/michaelhenry/MHWebViewController.git',
     :tag => s.version.to_s
   }
-  s.source_files = 'Sources/**/*'
+  s.source_files = 'MHWebViewController/Sources/*'
   s.ios.deployment_target  = '9.0'
   s.frameworks = 'WebKit'
   s.license = { :type => 'MIT', :file => 'LICENSE' }
   s.swift_version = '4.2'
+  s.resources = 'MHWebViewController/*.xcassets'
 end

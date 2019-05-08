@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7DEC628F12E708B596AAFDEF /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACF1A863AEE87E79B7132901 /* Pods_Example.framework */; };
 		A6C578FA227DEAAF00D720DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C578F9227DEAAF00D720DD /* AppDelegate.swift */; };
 		A6C578FC227DEAAF00D720DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C578FB227DEAAF00D720DD /* ViewController.swift */; };
 		A6C578FF227DEAAF00D720DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C578FD227DEAAF00D720DD /* Main.storyboard */; };
 		A6C57901227DEAB400D720DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6C57900227DEAB400D720DD /* Assets.xcassets */; };
 		A6C57904227DEAB400D720DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6C57902227DEAB400D720DD /* LaunchScreen.storyboard */; };
 		A6C5790F227DEAB400D720DD /* MHWebViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C5790E227DEAB400D720DD /* MHWebViewControllerTests.swift */; };
-		A6D06E61228093210072662C /* MHWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D06E60228093210072662C /* MHWebViewController.swift */; };
+		F1EEFDC2C2A9FC7EE858D38C /* Pods_ExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0009A51296D447FCA409E2C0 /* Pods_ExampleTests.framework */; };
+		FA232A4961194FFAD659D12E /* Pods_MHWebViewControllerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4960932053AFA93EB6D1E3 /* Pods_MHWebViewControllerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +29,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A6C578F6227DEAAF00D720DD /* MHWebViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHWebViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0009A51296D447FCA409E2C0 /* Pods_ExampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F7D32E1CF6F21BA33588664 /* Pods-ExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ExampleTests/Pods-ExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3B4960932053AFA93EB6D1E3 /* Pods_MHWebViewControllerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWebViewControllerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C649F67BB7841B1EAC7EC24 /* Pods-MHWebViewControllerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWebViewControllerTests.debug.xcconfig"; path = "Target Support Files/Pods-MHWebViewControllerTests/Pods-MHWebViewControllerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		568709FAC4B40356A6A6F4C0 /* Pods-ExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.release.xcconfig"; path = "Target Support Files/Pods-ExampleTests/Pods-ExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		6A5353E0B48453639D2DED20 /* Pods-MHWebViewControllerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWebViewControllerTests.release.xcconfig"; path = "Target Support Files/Pods-MHWebViewControllerTests/Pods-MHWebViewControllerTests.release.xcconfig"; sourceTree = "<group>"; };
+		726491804E65B4BE8AD1AEF2 /* Pods-MHWebViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWebViewController.debug.xcconfig"; path = "Target Support Files/Pods-MHWebViewController/Pods-MHWebViewController.debug.xcconfig"; sourceTree = "<group>"; };
+		87277B3EC27143F5AF7C643C /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A6C578F6227DEAAF00D720DD /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C578F9227DEAAF00D720DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6C578FB227DEAAF00D720DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A6C578FE227DEAAF00D720DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6C57900227DEAB400D720DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6C57903227DEAB400D720DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6C57905227DEAB400D720DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6C5790A227DEAB400D720DD /* MHWebViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHWebViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6C5790A227DEAB400D720DD /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6C5790E227DEAB400D720DD /* MHWebViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHWebViewControllerTests.swift; sourceTree = "<group>"; };
 		A6C57910227DEAB400D720DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A6D06E60228093210072662C /* MHWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHWebViewController.swift; sourceTree = "<group>"; };
+		A95A1EFF3532052FF82EF2B2 /* Pods_MHWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF1A863AEE87E79B7132901 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C43E0DAC2C1AABC7438C2419 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		CCAA90C20DDCB51A5046DC7C /* Pods-MHWebViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWebViewController.release.xcconfig"; path = "Target Support Files/Pods-MHWebViewController/Pods-MHWebViewController.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEC628F12E708B596AAFDEF /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,34 +66,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA232A4961194FFAD659D12E /* Pods_MHWebViewControllerTests.framework in Frameworks */,
+				F1EEFDC2C2A9FC7EE858D38C /* Pods_ExampleTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270894F6925DE22D364168AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				726491804E65B4BE8AD1AEF2 /* Pods-MHWebViewController.debug.xcconfig */,
+				CCAA90C20DDCB51A5046DC7C /* Pods-MHWebViewController.release.xcconfig */,
+				3C649F67BB7841B1EAC7EC24 /* Pods-MHWebViewControllerTests.debug.xcconfig */,
+				6A5353E0B48453639D2DED20 /* Pods-MHWebViewControllerTests.release.xcconfig */,
+				87277B3EC27143F5AF7C643C /* Pods-Example.debug.xcconfig */,
+				C43E0DAC2C1AABC7438C2419 /* Pods-Example.release.xcconfig */,
+				1F7D32E1CF6F21BA33588664 /* Pods-ExampleTests.debug.xcconfig */,
+				568709FAC4B40356A6A6F4C0 /* Pods-ExampleTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A6C578ED227DEAAF00D720DD = {
 			isa = PBXGroup;
 			children = (
-				A6C578F8227DEAAF00D720DD /* MHWebViewController */,
-				A6C5790D227DEAB400D720DD /* MHWebViewControllerTests */,
+				A6C578F8227DEAAF00D720DD /* Example */,
+				A6C5790D227DEAB400D720DD /* ExampleTests */,
 				A6C578F7227DEAAF00D720DD /* Products */,
+				270894F6925DE22D364168AD /* Pods */,
+				BD31FFF43A0E8D14FBE3CC01 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		A6C578F7227DEAAF00D720DD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A6C578F6227DEAAF00D720DD /* MHWebViewController.app */,
-				A6C5790A227DEAB400D720DD /* MHWebViewControllerTests.xctest */,
+				A6C578F6227DEAAF00D720DD /* Example.app */,
+				A6C5790A227DEAB400D720DD /* ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A6C578F8227DEAAF00D720DD /* MHWebViewController */ = {
+		A6C578F8227DEAAF00D720DD /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				A6D06E5F228093210072662C /* Sources */,
 				A6C578F9227DEAAF00D720DD /* AppDelegate.swift */,
 				A6C578FB227DEAAF00D720DD /* ViewController.swift */,
 				A6C578FD227DEAAF00D720DD /* Main.storyboard */,
@@ -87,50 +119,56 @@
 				A6C57902227DEAB400D720DD /* LaunchScreen.storyboard */,
 				A6C57905227DEAB400D720DD /* Info.plist */,
 			);
-			path = MHWebViewController;
+			path = Example;
 			sourceTree = "<group>";
 		};
-		A6C5790D227DEAB400D720DD /* MHWebViewControllerTests */ = {
+		A6C5790D227DEAB400D720DD /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				A6C5790E227DEAB400D720DD /* MHWebViewControllerTests.swift */,
 				A6C57910227DEAB400D720DD /* Info.plist */,
 			);
-			path = MHWebViewControllerTests;
+			path = ExampleTests;
 			sourceTree = "<group>";
 		};
-		A6D06E5F228093210072662C /* Sources */ = {
+		BD31FFF43A0E8D14FBE3CC01 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A6D06E60228093210072662C /* MHWebViewController.swift */,
+				A95A1EFF3532052FF82EF2B2 /* Pods_MHWebViewController.framework */,
+				3B4960932053AFA93EB6D1E3 /* Pods_MHWebViewControllerTests.framework */,
+				ACF1A863AEE87E79B7132901 /* Pods_Example.framework */,
+				0009A51296D447FCA409E2C0 /* Pods_ExampleTests.framework */,
 			);
-			path = Sources;
-			sourceTree = SOURCE_ROOT;
+			name = Frameworks;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A6C578F5227DEAAF00D720DD /* MHWebViewController */ = {
+		A6C578F5227DEAAF00D720DD /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6C57913227DEAB400D720DD /* Build configuration list for PBXNativeTarget "MHWebViewController" */;
+			buildConfigurationList = A6C57913227DEAB400D720DD /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
+				67ED7B5BCDAC89153D0F414E /* [CP] Check Pods Manifest.lock */,
 				A6C578F2227DEAAF00D720DD /* Sources */,
 				A6C578F3227DEAAF00D720DD /* Frameworks */,
 				A6C578F4227DEAAF00D720DD /* Resources */,
+				071E14534FD0C98CF339C922 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MHWebViewController;
+			name = Example;
 			productName = MHWebViewController;
-			productReference = A6C578F6227DEAAF00D720DD /* MHWebViewController.app */;
+			productReference = A6C578F6227DEAAF00D720DD /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A6C57909227DEAB400D720DD /* MHWebViewControllerTests */ = {
+		A6C57909227DEAB400D720DD /* ExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A6C57916227DEAB400D720DD /* Build configuration list for PBXNativeTarget "MHWebViewControllerTests" */;
+			buildConfigurationList = A6C57916227DEAB400D720DD /* Build configuration list for PBXNativeTarget "ExampleTests" */;
 			buildPhases = (
+				B14AE6CA06A3E3904D927C3E /* [CP] Check Pods Manifest.lock */,
 				A6C57906227DEAB400D720DD /* Sources */,
 				A6C57907227DEAB400D720DD /* Frameworks */,
 				A6C57908227DEAB400D720DD /* Resources */,
@@ -140,9 +178,9 @@
 			dependencies = (
 				A6C5790C227DEAB400D720DD /* PBXTargetDependency */,
 			);
-			name = MHWebViewControllerTests;
+			name = ExampleTests;
 			productName = MHWebViewControllerTests;
-			productReference = A6C5790A227DEAB400D720DD /* MHWebViewControllerTests.xctest */;
+			productReference = A6C5790A227DEAB400D720DD /* ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -164,7 +202,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A6C578F1227DEAAF00D720DD /* Build configuration list for PBXProject "MHWebViewController" */;
+			buildConfigurationList = A6C578F1227DEAAF00D720DD /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -177,8 +215,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A6C578F5227DEAAF00D720DD /* MHWebViewController */,
-				A6C57909227DEAB400D720DD /* MHWebViewControllerTests */,
+				A6C578F5227DEAAF00D720DD /* Example */,
+				A6C57909227DEAB400D720DD /* ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -203,13 +241,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		071E14534FD0C98CF339C922 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MHWebViewController/MHWebViewController.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MHWebViewController.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		67ED7B5BCDAC89153D0F414E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B14AE6CA06A3E3904D927C3E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A6C578F2227DEAAF00D720DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A6C578FC227DEAAF00D720DD /* ViewController.swift in Sources */,
-				A6D06E61228093210072662C /* MHWebViewController.swift in Sources */,
 				A6C578FA227DEAAF00D720DD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +333,7 @@
 /* Begin PBXTargetDependency section */
 		A6C5790C227DEAB400D720DD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A6C578F5227DEAAF00D720DD /* MHWebViewController */;
+			target = A6C578F5227DEAAF00D720DD /* Example */;
 			targetProxy = A6C5790B227DEAB400D720DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -370,11 +476,12 @@
 		};
 		A6C57914227DEAB400D720DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87277B3EC27143F5AF7C643C /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V542NQW43X;
-				INFOPLIST_FILE = MHWebViewController/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -389,11 +496,12 @@
 		};
 		A6C57915227DEAB400D720DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C43E0DAC2C1AABC7438C2419 /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V542NQW43X;
-				INFOPLIST_FILE = MHWebViewController/Info.plist;
+				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -408,6 +516,7 @@
 		};
 		A6C57917227DEAB400D720DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F7D32E1CF6F21BA33588664 /* Pods-ExampleTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -423,12 +532,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHWebViewController.app/MHWebViewController";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Debug;
 		};
 		A6C57918227DEAB400D720DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 568709FAC4B40356A6A6F4C0 /* Pods-ExampleTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -444,14 +554,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHWebViewController.app/MHWebViewController";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A6C578F1227DEAAF00D720DD /* Build configuration list for PBXProject "MHWebViewController" */ = {
+		A6C578F1227DEAAF00D720DD /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6C57911227DEAB400D720DD /* Debug */,
@@ -460,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6C57913227DEAB400D720DD /* Build configuration list for PBXNativeTarget "MHWebViewController" */ = {
+		A6C57913227DEAB400D720DD /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6C57914227DEAB400D720DD /* Debug */,
@@ -469,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A6C57916227DEAB400D720DD /* Build configuration list for PBXNativeTarget "MHWebViewControllerTests" */ = {
+		A6C57916227DEAB400D720DD /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A6C57917227DEAB400D720DD /* Debug */,

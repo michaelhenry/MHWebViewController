@@ -1,0 +1,16 @@
+PODS:
+  - MHWebViewController (1.0.0)
+
+DEPENDENCIES:
+  - MHWebViewController (from `./`)
+
+EXTERNAL SOURCES:
+  MHWebViewController:
+    :path: "./"
+
+SPEC CHECKSUMS:
+  MHWebViewController: adb9f1c23a36b67be67a15bd02d8eb1175833e3e
+
+PODFILE CHECKSUM: 62ffae2d66a52851aff63ab6c8ab8685b22dc1f7
+
+COCOAPODS: 1.6.1
