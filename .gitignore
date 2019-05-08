@@ -2,3 +2,4 @@ DerivedData/*
 *.xcodeproj/xcuserdata
 *.xcodeproj/project.xcworkspace/xcuserdata
 Pods/*
+*.xcworkspace/xcuserdata
