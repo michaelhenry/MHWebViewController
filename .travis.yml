@@ -6,9 +6,8 @@ jobs:
       before_install:
         - gem install cocoapods
       script:
-        - cd Example
         - pod install
-        - xcodebuild test -workspace Example.xcworkspace -scheme Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X' -quiet
+        - xcodebuild test -workspace Example.xcworkspace -scheme Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X'
     - stage: deploying to cocoapods
       before_install:
         - echo $TRAVIS_TAG
