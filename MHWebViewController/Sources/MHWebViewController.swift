@@ -33,7 +33,7 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
     container.topAnchor.constraint(
       equalTo: view.safeTopAnchor, constant: topMargin).isActive = true
     container.heightAnchor.constraint(
-      equalTo: view.heightAnchor, constant: -topMargin).isActive = true
+      equalTo: view.heightAnchor, constant: -topMargin - 44.0).isActive = true
     container.leadingAnchor.constraint(
       equalTo: view.safeLeadingAnchor, constant: 0).isActive = true
     container.trailingAnchor.constraint(
