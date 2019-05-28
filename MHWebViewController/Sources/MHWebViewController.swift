@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, WKNavigationDelegate {
+public class MHWebViewController:UIViewController {
   
   private(set) lazy var webView:WKWebView = WKWebView(frame: CGRect.zero)
   
@@ -21,6 +21,7 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
     lbl.adjustsFontSizeToFitWidth = true
     lbl.minimumScaleFactor = 0.9
     lbl.textAlignment = .center
+    lbl.text = NSLocalizedString("LOADING...", comment: "the loading text at the top")
     lbl.font = UIFont.boldSystemFont(ofSize: 16)
     return lbl
   }()
@@ -33,7 +34,7 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
     lbl.font = UIFont.systemFont(ofSize: 10)
     return lbl
   }()
-  
+
   private let topMargin:CGFloat = 10.0
   
   private var lastLocation:CGPoint = .zero
@@ -106,12 +107,16 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
   
   public override func viewDidAppear(_ animated: Bool) {
     webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
-    webView.addObserver(self, forKeyPath: "title", options: .new, context: nil)
+    webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
+    webView.addObserver(self, forKeyPath: #keyPath(WKWebView.canGoBack), options: .new, context: nil)
+    webView.addObserver(self, forKeyPath: #keyPath(WKWebView.canGoForward), options: .new, context: nil)
   }
   
   public override func viewDidDisappear(_ animated: Bool) {
     webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.estimatedProgress))
     webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.title))
+    webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.canGoBack))
+    webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.canGoForward))
   }
   
   @objc private func dismissMe(_ sender: UIBarButtonItem) {
@@ -120,54 +125,6 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
   
   public func dismiss(completion: (() -> Void)? = nil) {
     dismiss(animated: true, completion: completion)
-  }
-  
-  private func addPanGestureRecognizer() {
-    let panRecognizer = UIPanGestureRecognizer(
-      target: self,
-      action: #selector(self.handlePanning(_:)))
-    panRecognizer.delegate = self
-    panRecognizer.maximumNumberOfTouches = 1
-    panRecognizer.minimumNumberOfTouches = 1
-    panRecognizer.cancelsTouchesInView = true
-    toolbar.gestureRecognizers?.forEach {
-      $0.require(toFail: panRecognizer)
-    }
-    toolbar.gestureRecognizers = [panRecognizer]
-  }
-  
-  @objc private func handlePanning(_ gestureRecognizer: UIPanGestureRecognizer?) {
-  
-    if gestureRecognizer?.state == .began {
-      lastLocation = container.center
-    }
-
-    if gestureRecognizer?.state != .cancelled {
-      guard let translation: CGPoint = gestureRecognizer?
-        .translation(in: view) else { return }
-      container.center = CGPoint(
-        x: container.center.x,
-        y: lastLocation.y + translation.y)
-    }
-    
-    if gestureRecognizer?.state == .ended {
-      if container.frame.origin.y > view.frame.size.height/2.0 {
-        dismiss()
-        return
-      }
-      
-      UIView.animate(
-        withDuration: 0.7,
-        delay: 0.0,
-        usingSpringWithDamping: 0.5,
-        initialSpringVelocity: 0.5,
-        options: .allowUserInteraction,
-        animations: {
-          self.container.center = self.lastLocation
-      }) { finished in
-        
-      }
-    }
   }
   
   override public func observeValue(
@@ -195,6 +152,60 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
       break
     }
   }
+}
+
+extension MHWebViewController:UIGestureRecognizerDelegate {
+  
+  fileprivate func addPanGestureRecognizer() {
+    let panRecognizer = UIPanGestureRecognizer(
+      target: self,
+      action: #selector(self.handlePanning(_:)))
+    panRecognizer.delegate = self
+    panRecognizer.maximumNumberOfTouches = 1
+    panRecognizer.minimumNumberOfTouches = 1
+    panRecognizer.cancelsTouchesInView = true
+    toolbar.gestureRecognizers?.forEach {
+      $0.require(toFail: panRecognizer)
+    }
+    toolbar.gestureRecognizers = [panRecognizer]
+  }
+  
+  @objc private func handlePanning(_ gestureRecognizer: UIPanGestureRecognizer?) {
+    
+    if gestureRecognizer?.state == .began {
+      lastLocation = container.center
+    }
+    
+    if gestureRecognizer?.state != .cancelled {
+      guard let translation: CGPoint = gestureRecognizer?
+        .translation(in: view) else { return }
+      container.center = CGPoint(
+        x: container.center.x,
+        y: lastLocation.y + translation.y)
+    }
+    
+    if gestureRecognizer?.state == .ended {
+      if container.frame.origin.y > view.frame.size.height/2.0 {
+        dismiss()
+        return
+      }
+      
+      UIView.animate(
+        withDuration: 0.7,
+        delay: 0.0,
+        usingSpringWithDamping: 0.5,
+        initialSpringVelocity: 0.5,
+        options: .allowUserInteraction,
+        animations: {
+          self.container.center = self.lastLocation
+      }) { finished in
+        
+      }
+    }
+  }
+}
+
+extension MHWebViewController:WKNavigationDelegate {
   
   public func webView(
     _ webView: WKWebView,
