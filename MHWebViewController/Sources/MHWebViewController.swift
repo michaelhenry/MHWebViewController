@@ -9,12 +9,14 @@
 import UIKit
 import WebKit
 
-public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
+public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, WKNavigationDelegate {
   
   private(set) lazy var webView:WKWebView = WKWebView(frame: CGRect.zero)
   
   private lazy var toolbar:UIToolbar = UIToolbar(frame: CGRect.zero)
   private lazy var container = UIView(frame: CGRect.zero)
+  private lazy var progressView = UIProgressView(progressViewStyle: .default)
+  
   private let topMargin:CGFloat = 10.0
   
   private var lastLocation:CGPoint = .zero
@@ -55,7 +57,7 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
     closeButton.tintColor = UIColor.darkGray
     toolbar.items = [closeButton]
   
-    let mainStackView = UIStackView(arrangedSubviews: [toolbar, webView])
+    let mainStackView = UIStackView(arrangedSubviews: [toolbar, progressView, webView])
     mainStackView.axis = .vertical
     container.addSubview(mainStackView)
     mainStackView.bindFrameToSuperviewBounds()
@@ -63,7 +65,16 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
   
   override public func viewDidLoad() {
     super.viewDidLoad()
+    webView.navigationDelegate = self
     webView.load(request)
+  }
+  
+  public override func viewDidAppear(_ animated: Bool) {
+    webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+  }
+  
+  public override func viewDidDisappear(_ animated: Bool) {
+    webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.estimatedProgress))
   }
   
   @objc private func dismissMe(_ sender: UIBarButtonItem) {
@@ -120,6 +131,37 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate {
         
       }
     }
+  }
+  
+  override public func observeValue(
+    forKeyPath keyPath: String?,
+    of object: Any?,
+    change: [NSKeyValueChangeKey : Any]?,
+    context: UnsafeMutableRawPointer?) {
+    
+    if keyPath == "estimatedProgress" {
+      progressView.progress = Float(webView.estimatedProgress)
+      if progressView.progress == 1.0 {
+        progressView.alpha = 0.0
+      } else if progressView.alpha != 1.0 {
+        progressView.alpha = 1.0
+      }
+    }
+  }
+  
+  public func webView(
+    _ webView: WKWebView,
+    decidePolicyFor navigationAction: WKNavigationAction,
+    decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    
+    switch navigationAction.navigationType {
+    case .linkActivated:
+      webView.load(navigationAction.request)
+    default:
+      // TODO: Handle other types
+      break
+    }
+    decisionHandler(.allow)
   }
 }
 
