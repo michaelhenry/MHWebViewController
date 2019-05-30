@@ -9,20 +9,50 @@
 import UIKit
 import WebKit
 
-public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, WKNavigationDelegate {
+public class MHWebViewController:UIViewController {
   
   private(set) lazy var webView:WKWebView = WKWebView(frame: CGRect.zero)
   
   private lazy var toolbar:UIToolbar = UIToolbar(frame: CGRect.zero)
   private lazy var container = UIView(frame: CGRect.zero)
   private lazy var progressView = UIProgressView(progressViewStyle: .default)
+  private lazy var titleLabel:UILabel = {
+    let lbl = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 250.0, height: 16.0))
+    lbl.adjustsFontSizeToFitWidth = true
+    lbl.minimumScaleFactor = 0.9
+    lbl.textAlignment = .center
+    lbl.text = NSLocalizedString("LOADING...", comment: "the loading text at the top")
+    lbl.font = UIFont.boldSystemFont(ofSize: 16)
+    return lbl
+  }()
   
+  private lazy var urlLabel:UILabel = {
+    let lbl = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 250.0, height: 10.0))
+    lbl.adjustsFontSizeToFitWidth = true
+    lbl.minimumScaleFactor = 0.9
+    lbl.textAlignment = .center
+    lbl.font = UIFont.systemFont(ofSize: 10)
+    return lbl
+  }()
+
   private let topMargin:CGFloat = 10.0
   
   private var lastLocation:CGPoint = .zero
   
   public var request:URLRequest!
  
+  public override var title: String? {
+    didSet {
+      titleLabel.text = title
+    }
+  }
+  
+  var detail:String? {
+    didSet {
+      urlLabel.text = detail
+    }
+  }
+  
   override public func loadView() {
     super.loadView()
     view = UIView()
@@ -55,7 +85,13 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
       target: self,
       action: #selector(dismissMe(_:)))
     closeButton.tintColor = UIColor.darkGray
-    toolbar.items = [closeButton]
+    
+    let titleStackView = UIStackView(arrangedSubviews: [titleLabel, urlLabel])
+    titleStackView.axis = .vertical
+    let titleItem = UIBarButtonItem(customView: titleStackView)
+    
+    let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+    toolbar.items = [closeButton, flexibleSpace, titleItem, flexibleSpace]
   
     let mainStackView = UIStackView(arrangedSubviews: [toolbar, progressView, webView])
     mainStackView.axis = .vertical
@@ -71,10 +107,16 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
   
   public override func viewDidAppear(_ animated: Bool) {
     webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
+    webView.addObserver(self, forKeyPath: #keyPath(WKWebView.title), options: .new, context: nil)
+    webView.addObserver(self, forKeyPath: #keyPath(WKWebView.canGoBack), options: .new, context: nil)
+    webView.addObserver(self, forKeyPath: #keyPath(WKWebView.canGoForward), options: .new, context: nil)
   }
   
   public override func viewDidDisappear(_ animated: Bool) {
     webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.estimatedProgress))
+    webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.title))
+    webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.canGoBack))
+    webView.removeObserver(self, forKeyPath:  #keyPath(WKWebView.canGoForward))
   }
   
   @objc private func dismissMe(_ sender: UIBarButtonItem) {
@@ -85,7 +127,36 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
     dismiss(animated: true, completion: completion)
   }
   
-  private func addPanGestureRecognizer() {
+  override public func observeValue(
+    forKeyPath keyPath: String?,
+    of object: Any?,
+    change: [NSKeyValueChangeKey : Any]?,
+    context: UnsafeMutableRawPointer?) {
+    
+    switch keyPath {
+    case "estimatedProgress":
+      progressView.progress = Float(webView.estimatedProgress)
+      if progressView.progress == 1.0 {
+        progressView.alpha = 0.0
+      } else if progressView.alpha != 1.0 {
+        progressView.alpha = 1.0
+      }
+    case "title":
+      title = webView.title
+      if let scheme = webView.url?.scheme, let host = webView.url?.host {
+        detail = "\(scheme)://\(host)"
+      } else {
+        detail = ""
+      }
+    default:
+      break
+    }
+  }
+}
+
+extension MHWebViewController:UIGestureRecognizerDelegate {
+  
+  fileprivate func addPanGestureRecognizer() {
     let panRecognizer = UIPanGestureRecognizer(
       target: self,
       action: #selector(self.handlePanning(_:)))
@@ -100,11 +171,11 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
   }
   
   @objc private func handlePanning(_ gestureRecognizer: UIPanGestureRecognizer?) {
-  
+    
     if gestureRecognizer?.state == .began {
       lastLocation = container.center
     }
-
+    
     if gestureRecognizer?.state != .cancelled {
       guard let translation: CGPoint = gestureRecognizer?
         .translation(in: view) else { return }
@@ -132,22 +203,9 @@ public class MHWebViewController:UIViewController, UIGestureRecognizerDelegate, 
       }
     }
   }
-  
-  override public func observeValue(
-    forKeyPath keyPath: String?,
-    of object: Any?,
-    change: [NSKeyValueChangeKey : Any]?,
-    context: UnsafeMutableRawPointer?) {
-    
-    if keyPath == "estimatedProgress" {
-      progressView.progress = Float(webView.estimatedProgress)
-      if progressView.progress == 1.0 {
-        progressView.alpha = 0.0
-      } else if progressView.alpha != 1.0 {
-        progressView.alpha = 1.0
-      }
-    }
-  }
+}
+
+extension MHWebViewController:WKNavigationDelegate {
   
   public func webView(
     _ webView: WKWebView,
