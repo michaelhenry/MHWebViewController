@@ -227,7 +227,7 @@ public extension UIViewController {
   
   // Shortcuts
   @objc
-  public func present(urlRequest: URLRequest, completion: (() -> Void)? = nil) {
+  func present(urlRequest: URLRequest, completion: (() -> Void)? = nil) {
     let web = MHWebViewController()
     web.request = urlRequest
     web.modalPresentationStyle = .overCurrentContext
@@ -235,7 +235,7 @@ public extension UIViewController {
   }
   
   @objc
-  public func present(url: URL, completion: (() -> Void)? = nil) {
+  func present(url: URL, completion: (() -> Void)? = nil) {
     let urlRequest = URLRequest(url: url)
     present(urlRequest: urlRequest)
   }
