@@ -11,7 +11,7 @@ import WebKit
 
 public class MHWebViewController:UIViewController {
   
-  private(set) lazy var webView:WKWebView = WKWebView(frame: CGRect.zero)
+  public private(set) lazy var webView:WKWebView = WKWebView(frame: CGRect.zero)
   
   private lazy var toolbar:UIToolbar = UIToolbar(frame: CGRect.zero)
   private lazy var container = UIView(frame: CGRect.zero)
@@ -21,7 +21,6 @@ public class MHWebViewController:UIViewController {
     lbl.adjustsFontSizeToFitWidth = true
     lbl.minimumScaleFactor = 0.9
     lbl.textAlignment = .center
-    lbl.text = NSLocalizedString("LOADING...", comment: "the loading text at the top")
     lbl.font = UIFont.boldSystemFont(ofSize: 16)
     return lbl
   }()
@@ -52,6 +51,8 @@ public class MHWebViewController:UIViewController {
       urlLabel.text = detail
     }
   }
+  
+  public var titleHidden:Bool = false
   
   override public func loadView() {
     super.loadView()
@@ -101,6 +102,7 @@ public class MHWebViewController:UIViewController {
   
   override public func viewDidLoad() {
     super.viewDidLoad()
+    titleLabel.text = titleHidden ? "" : NSLocalizedString("LOADING...", comment: "the loading text at the top")
     webView.navigationDelegate = self
     webView.load(request)
   }
@@ -142,8 +144,9 @@ public class MHWebViewController:UIViewController {
         progressView.alpha = 1.0
       }
     case "title":
-      title = webView.title
-      if let scheme = webView.url?.scheme, let host = webView.url?.host {
+      title = titleHidden ? "" : webView.title
+      if !titleHidden, let scheme = webView.url?.scheme,
+        let host = webView.url?.host {
         detail = "\(scheme)://\(host)"
       } else {
         detail = ""
@@ -227,17 +230,18 @@ public extension UIViewController {
   
   // Shortcuts
   @objc
-  func present(urlRequest: URLRequest, completion: (() -> Void)? = nil) {
+  func present(urlRequest: URLRequest, titleHidden:Bool = false, completion: (() -> Void)? = nil) {
     let web = MHWebViewController()
     web.request = urlRequest
     web.modalPresentationStyle = .overCurrentContext
+    web.titleHidden = titleHidden
     present(web, animated: true, completion: completion)
   }
   
   @objc
-  func present(url: URL, completion: (() -> Void)? = nil) {
+  func present(url: URL, titleHidden:Bool = false, completion: (() -> Void)? = nil) {
     let urlRequest = URLRequest(url: url)
-    present(urlRequest: urlRequest)
+    present(urlRequest: urlRequest, titleHidden: titleHidden, completion: completion)
   }
 }
 
