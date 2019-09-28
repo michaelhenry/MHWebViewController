@@ -1,4 +1,4 @@
-osx_image: xcode10.2
+osx_image: xcode11
 language: objective-c
 jobs:
   include:
@@ -7,7 +7,7 @@ jobs:
         - gem install cocoapods
       script:
         - pod install
-        - xcodebuild test -workspace Example.xcworkspace -scheme Example -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X' -quiet
+        - xcodebuild test -workspace Example.xcworkspace -scheme Example -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=11.3,name=iPhone X' -quiet
     - stage: deploying to cocoapods
       before_install:
         - echo $TRAVIS_TAG
