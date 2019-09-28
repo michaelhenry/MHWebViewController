@@ -25,7 +25,7 @@ class ViewController: UIViewController {
   }
 
   @objc func showBrowser(_ sender:UIButton) {
-    present(url: URL(string: "https://iamkel.net")!, completion: nil)
+    present(url: URL(string: "https://github.com")!, completion: nil)
   }
 }
 
