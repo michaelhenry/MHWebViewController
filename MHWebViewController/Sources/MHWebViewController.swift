@@ -129,13 +129,13 @@ public class MHWebViewController:UIViewController {
   private func setupMainLayout() {
     view = UIView()
     view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-    view.backgroundColor = UIColor.clear
+    view.backgroundColor = .clear
     view.addSubview(container)
     container.translatesAutoresizingMaskIntoConstraints = false
     container.topAnchor.constraint(
       equalTo: view.safeTopAnchor, constant: topMargin).isActive = true
-    container.heightAnchor.constraint(
-      equalTo: view.heightAnchor, constant: -topMargin - 44.0).isActive = true
+    container.bottomAnchor.constraint(
+      equalTo: view.bottomAnchor).isActive = true
     container.leadingAnchor.constraint(
       equalTo: view.safeLeadingAnchor, constant: 0).isActive = true
     container.trailingAnchor.constraint(
