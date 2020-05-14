@@ -143,7 +143,17 @@ public class MHWebViewController:UIViewController {
     container.layer.cornerRadius = 16.0
     container.clipsToBounds = true
     
-    let mainStackView = UIStackView(arrangedSubviews: [toolbar, progressView, webView])
+    let progressViewContainer = UIView()
+    progressViewContainer.addSubview(progressView)
+    progressView.bindFrameToSuperviewBounds()
+    progressViewContainer.heightAnchor.constraint(equalToConstant: 1)
+        .isActive = true
+    
+    let mainStackView = UIStackView(arrangedSubviews: [
+        toolbar,
+        progressViewContainer,
+        webView])
+    
     mainStackView.axis = .vertical
     container.addSubview(mainStackView)
     mainStackView.bindFrameToSuperviewBounds()
